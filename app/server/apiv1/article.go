@@ -7,15 +7,14 @@ import (
 )
 
 func ArticleList(c *happy.Context) {
-	where := ""
-	args := []string{"golang"}
+	where := "class_name = ?"
 	//
 	//var where [2]interface{}
 	//var args [...]interface{}
 	//where[0] = "class_name = ?"
 	//args[0] = "golang"
 	//where[1] = args
-	if list, err := model.GetArticleList(1,3,where,args...); err == nil {
+	if list, err := model.GetArticleList(1,3,where,"golang1"); err == nil {
 		c.WJson(app.Success(2000,list))
 	}
 
