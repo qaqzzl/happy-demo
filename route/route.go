@@ -3,7 +3,7 @@ package route
 import (
 	"github.com/qaqzzl/happy"
 	"happy-demo/app/middleware"
-	"happy-demo/app/server/v1"
+	"happy-demo/app/server/apiv1"
 )
 
 func init() {
@@ -11,11 +11,10 @@ func init() {
 
 	route.UseMiddleware(middleware.MiddlewareTest)
 
-	//v1 := route.RouterGroup("v1")
-	//v1.UseMiddleware(MiddlewareTestGroup)
-	//{
-	//	v1.RouteAny("route", ControllerGroup)
-	//}
+	api_v1 := route.RouterGroup("apiv1")
+	{
+		api_v1.RouteAny("article/list", apiv1.ArticleList)
+	}
 
-	route.RouteAny("route", v1.ControllerTest)
+	route.RouteAny("/", apiv1.ControllerTest)
 }
