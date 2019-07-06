@@ -14,17 +14,17 @@ create table if not exists `article_class`(
 
 -- 文章表
 CREATE TABLE IF NOT EXISTS `article` (
-  `article_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `article_id` int unsigned NOT NULL AUTO_INCREMENT,
   `class_name` varchar(20) comment '分类名',
   `headline` varchar(45) DEFAULT '' comment '标题',
-  `summary` varchar(255) comment '摘要',
-  `content` text,
-  `created_at` int(10) unsigned NOT NULL DEFAULT '0',
-  `updated_at` int(10) unsigned DEFAULT '0',
+  `summary` varchar(255) DEFAULT '' comment '摘要',
+  `content` text DEFAULT '',
+  `created_at` int DEFAULT 0,
+  `updated_at` int DEFAULT 0,
   `comm` smallint(5) unsigned NOT NULL DEFAULT '0' comment '评论数量',
-  `uv` int(11) NOT NULL DEFAULT 0 COMMENT '访客量',
-  `pv` int(11) NOT NULL DEFAULT 0 COMMENT '点击量',
-  `status` tinyint(1) NOT NULL DEFAULT 0 COMMENT '0-隐藏 1-显示 2-未提交',
+  `uv` int DEFAULT 0 COMMENT '访客量',
+  `pv` int DEFAULT 0 COMMENT '点击量',
+  `status` tinyint(1) DEFAULT 0 COMMENT '0-隐藏 1-显示 2-未提交',
   PRIMARY KEY (`article_id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='文章表';
 
